@@ -4,13 +4,17 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const passwordResetRoutes = require('./routes/passwordReset');
+const cicloMenstrualRoutes = require('./routes/cicloMenstrualRoutes');
+const pressaoRoutes = require('./routes/pressaoRoutes');
+const insoniaRoutes = require('./routes/insoniaRoutes');
+const hormonalRoutes = require('./routes/hormonalRoutes');
 
 const app = express();
 
 app.use(bodyParser.json());
 
 // Conexão ao MongoDB
-const uri = "url";
+const uri = "url-bd";
 
 mongoose.connect(uri, { 
     useNewUrlParser: true, 
@@ -31,6 +35,10 @@ app.use((req, res, next) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/password-reset', passwordResetRoutes);
+app.use('/api/ciclo-menstrual', cicloMenstrualRoutes);
+app.use('/api/pressao', pressaoRoutes);
+app.use('/api/insonia', insoniaRoutes);
+app.use('/api/hormonal', hormonalRoutes);
 
 app.get('/', (req, res) => {
     res.send('Servidor está rodando!');
