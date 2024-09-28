@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Conexão ao MongoDB
-const uri = "url_do_bd";
+const uri = "url";
 
 mongoose.connect(uri, { 
     useNewUrlParser: true, 
