@@ -14,12 +14,9 @@ const app = express();
 app.use(bodyParser.json());
 
 // Conexão ao MongoDB
-const uri = "url-bd";
+const uri = "url_bd";
 
-mongoose.connect(uri, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
-})
+mongoose.connect(uri)
 .then(() => console.log('Conectado ao MongoDB'))
 .catch(err => {
     console.error('Erro ao conectar ao MongoDB:', err.message);
